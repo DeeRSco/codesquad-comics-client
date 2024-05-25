@@ -1,1 +1,0 @@
-setting up the React App for CodeSquad Comics

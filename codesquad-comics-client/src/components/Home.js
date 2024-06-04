@@ -2,6 +2,8 @@ import React from "react";
 import booksData from "../data/books";
 
 const Home = () => {
+  const [books, setBooks] = useState([]);
+  
   return (
     <div>
       Home

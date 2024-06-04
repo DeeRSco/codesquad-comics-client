@@ -1,6 +1,13 @@
 import React from "react";
+import booksData from "../data/books"
 
 const Admin = () => {
+    const [books, setBooks] = useState([]);
+
+    useEffect(()=>{
+        
+    })
+
     return (
         <div>Admin
             <div className="white-bg-bb" className="admin-page">

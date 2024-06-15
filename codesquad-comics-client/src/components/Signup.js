@@ -1,14 +1,11 @@
 import React from "react";
 
 const Signup = ({ user, setUser }) => {
-  
-  const handleSignupSubmit = (e)=>{
-    
-    console.log("The signup form has been submitted")
-    console.log(``)
+  const handleSignupSubmit = (event) => {
+    console.log("The signup form has been submitted");
+    console.log(`Submitted: Username: ${username}, Password: {password}, First Name:${fName}, Last Name: ${lName}`);
+  };
 
-  }
-  
   return (
     <div>
       Signup Form
@@ -19,11 +16,12 @@ const Signup = ({ user, setUser }) => {
           </div>
 
           <div className="signupForm">
-            <form action="#">
+            <form action="#" onSubmit={handleSignupSubmit}>
               <div className="signupInputs">
                 <div class="signupUsername">
                   <label htmlFor="username">Username:</label>
                   <input
+                    required
                     type="text"
                     name="username"
                     id="username"
@@ -34,6 +32,7 @@ const Signup = ({ user, setUser }) => {
                 <div className="signupPassword">
                   <label htmlFor="password">Password:</label>
                   <input
+                    required
                     type="password"
                     name="password"
                     id="password"
@@ -44,6 +43,7 @@ const Signup = ({ user, setUser }) => {
                 <div className="signupfName">
                   <label htmlFor="fName">First Name:</label>
                   <input
+                    required
                     type="text"
                     name="fName"
                     id="fName"
@@ -54,13 +54,13 @@ const Signup = ({ user, setUser }) => {
                 <div className="signuplName">
                   <label htmlFor="lName">Last Name:</label>
                   <input
+                    required
                     type="lName"
                     name="lName"
                     id="lName"
                     placeholder="Last Name"
                   />
                 </div>
-
               </div>
 
               <input

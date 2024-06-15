@@ -1,15 +1,18 @@
-import React from "react";
+import React, {useState} from "react";
+
 import About from "./components/About";
+import Admin from "./components/Admin";
+import Create from "./components/Create";
+import Home from "./components/Home";
+import Login from "./components/login";
+import Signup from "./components/Signup";
+import Update from "./components/Update";
+
 import Header from "./shared/Header";
 import Footer from "./shared/Footer"
 
-import Home from "./components/Home"
-
-import {useState} from "react";
-
-
 function App() {
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState(localStorage.getItem("user") || {});
   
   return (
     <div className="App">

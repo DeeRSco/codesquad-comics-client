@@ -1,12 +1,14 @@
 import React, {useState, useEffect} from "react";
 import booksData from "../data/books"
+import { useParams } from "react-router-dom";
 
 const Update = () => {
+  const {bookId} = useParams();
   // FIRST - Create a state using useState to hold data for "book". Create the setter function and initialize it to an empty object
   const [book, setBook] = useState({});
 
   // NEXT - Create a variable name id and assign one of the IDs of the books from the books data
-  const id = book._id;
+  // const id = book._id; inactive since added line 6
 
   // THEN - Create a useEffect function. In the callback section, find a book from the books data where the ID matches.
   // Create a new variable and assign the found book to the variable. Use the setter function of the book state to set the value of the book to the new found book.
@@ -19,6 +21,15 @@ const Update = () => {
 
   
   const handleUpdateSubmit = (event) => {
+    const body = {
+      title: event.target.title.value,
+      author: event.target.author.value,
+      publisher: event.target.publisher.value,
+      genre: event.target.genre.value,
+      pages: event.target.pages.value,
+      rating: event.target.rating.value,
+      synopsis: event.target.synopsis.value
+    }
     event.preventDefault();
     console.log("The Update form has been submitted");
     console.log(`Updated information for Book #${book.id}:

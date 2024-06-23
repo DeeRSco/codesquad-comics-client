@@ -1,11 +1,23 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Create = () => {
+  const navigate = useNavigate();
   const [book, setBook] = useState([]);
   const handleCreateSubmit = (event)=>{
+    const body = {
+      title: event.target.title.value,
+      author: event.target.author.value,
+      publisher: event.target.publisher.value,
+      genre: event.target.genre.value,
+      pages: event.target.pages.value,
+      rating: event.target.rating.value,
+      synopsis: event.target.synopsis.value
+
+    }
     event.preventDefault();
     console.log("The prevent default method has run.")
-    console.log(`Submitted: Title ${book.title}, Author: ${book.author}, Publisher: ${book.publisher}, Genre: ${book.genre}`)
+    console.log(`Submitted: Title: ${book.title}, Author: ${book.author}, Publisher: ${book.publisher}, Genre: ${book.genre}, Pages:${book.pages} , Rating: ${book.rating} , Synopsis: ${book.synopsis}`)
   }
   
     return (

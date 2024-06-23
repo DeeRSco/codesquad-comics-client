@@ -1,6 +1,10 @@
 import React from "react";
 
 const Header = ({user, setUser}) => {
+  const navigate = useNavigate();
+  
+  const handleLogout = () => {}
+  
   return (
     <div>
       Header

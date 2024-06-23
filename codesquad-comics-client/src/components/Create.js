@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 const Create = () => {
+  const [book, setBook] = useState([]);
   const handleCreateSubmit = (event)=>{
     event.preventDefault();
     console.log("The prevent default method has run.")
-    console.log(`Submitted: Title ${title}, Author: ${author}, Publisher: ${publisher}, Genre: ${genre}`)
+    console.log(`Submitted: Title ${book.title}, Author: ${book.author}, Publisher: ${book.publisher}, Genre: ${book.genre}`)
   }
   
     return (
@@ -19,22 +20,22 @@ const Create = () => {
               <div className="create-category">
                 <label htmlFor="title">Title:</label>
                 <input
-                  required
                   type="text"
                   name="title"
                   id="title"
                   placeholder="Title"
+                  required
                 />
               </div>
 
               <div className="create-category">
                 <label htmlFor="author">Author:</label>
                 <input
-                  required 
                   type="text"
                   name="author"
                   id="author"
                   placeholder="Author"
+                  required 
                 />
               </div>
 
@@ -57,56 +58,56 @@ const Create = () => {
               <div className="create-category">
                 <label htmlFor="genre">Genre:</label>
                 <input
-                  required
                   type="text"
                   name="genre"
                   id="genre"
                   placeholder="Genre"
+                  required
                 />
               </div>
 
               <div className="create-category">
                 <label htmlFor="pages">Number of Pages:</label>
                 <input
-                  required
                   type="text"
                   name="pages"
                   id="pages"
                   placeholder="Number of Pages"
+                  required
                 />
               </div>
 
               <div className="create-category">
                 <label for="rating">Rating:</label>
                 <input
-                  required
                   type="number"
                   name="rating"
                   id="rating"
                   min="1"
                   max="5"
                   placeholder="number (0-5)"
+                  required
                 />
               </div>
 
               <div className="create-category">
                 <label for="synopsis">Synopsis:</label>
                 <textarea
-                  required
                   id="synopsis"
                   name="synopsis"
                   placeholder="Synopsis"
+                  required
                 ></textarea>
               </div>
             </div>
 
             <div>
               <input
-                required
                 type="button"
                 value="Submit"
                 action="#"
                 class="submit-button"
+                required
               />
             </div>
           </form>

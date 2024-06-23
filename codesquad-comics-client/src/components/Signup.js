@@ -1,16 +1,15 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 const Signup = ({ user, setUser }) => {
   const handleSignupSubmit = (event) => {
     console.log("The signup form has been submitted");
-    console.log(`Submitted: Username: ${username}, Password: {password}, First Name:${fName}, Last Name: ${lName}`);
+    console.log(`Submitted: Username: ${user.username}, Password: ${user.password}, First Name:${user.fName}, Last Name: ${user.lName}`);
   };
 
   return (
     <div>
       Signup Form
-      <div class="white-bg-bb">
-        <div className="signup-page">
+         <div className="signup-page white-bg-bb">
           <div>
             <h1>Signup</h1>
           </div>
@@ -21,44 +20,44 @@ const Signup = ({ user, setUser }) => {
                 <div class="signupUsername">
                   <label htmlFor="username">Username:</label>
                   <input
-                    required
                     type="text"
                     name="username"
                     id="username"
                     placeholder="Username"
+                    required
                   />
                 </div>
 
                 <div className="signupPassword">
                   <label htmlFor="password">Password:</label>
                   <input
-                    required
                     type="password"
                     name="password"
                     id="password"
                     placeholder="Password"
+                    required
                   />
                 </div>
 
                 <div className="signupfName">
                   <label htmlFor="fName">First Name:</label>
                   <input
-                    required
                     type="text"
                     name="fName"
                     id="fName"
                     placeholder="First Name"
+                    required
                   />
                 </div>
 
                 <div className="signuplName">
                   <label htmlFor="lName">Last Name:</label>
                   <input
-                    required
                     type="lName"
                     name="lName"
                     id="lName"
                     placeholder="Last Name"
+                    required
                   />
                 </div>
               </div>
@@ -73,7 +72,7 @@ const Signup = ({ user, setUser }) => {
           </div>
         </div>
       </div>
-    </div>
+   
   );
 };
 

@@ -1,10 +1,10 @@
-import React, {useState} from "react";
+import React, { useState, useEffect } from "react";
 
 import About from "./components/About";
 import Admin from "./components/Admin";
 import Create from "./components/Create";
 import Home from "./components/Home";
-import Login from "./components/login";
+import Login from "./components/Login";
 import Signup from "./components/Signup";
 import Update from "./components/Update";
 

@@ -4,7 +4,7 @@ const Login = ({ user, setUser }) => {
   const handleLoginSubmit = (event) => {
     event.preventDefault();
     console.log("The prevent default method has run.");
-    console.log(`Submitted: Email: ${email}, Password: ${password}`)
+    console.log(`Submitted: Email: ${user.email}, Password: ${user.password}`)
   };
 
   return (
@@ -17,27 +17,27 @@ const Login = ({ user, setUser }) => {
           </div>
 
           <div className="login-form">
-            <form action="#" onSubmit={handleLoginSubmit}>
+            <form onSubmit={handleLoginSubmit}>
               <div className="login-inputs">
                 <div class="login-email">
                   <label htmlFor="email">Email address:</label>
                   <input
-                    required
                     type="email"
                     name="email"
                     id="email"
                     placeholder="Email"
+                    required
                   />
                 </div>
 
                 <div className="login-password">
                   <label htmlFor="password">Password:</label>
                   <input
-                    required
                     type="password"
                     name="password"
                     id="password"
                     placeholder="Password"
+                    required
                   />
                 </div>
               </div>

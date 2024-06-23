@@ -2,7 +2,24 @@ import React, {useState, useEffect} from "react";
 import booksData from "../data/books"
 
 const Update = () => {
-  const handleUpdateSubmit (event) => {
+  // FIRST - Create a state using useState to hold data for "book". Create the setter function and initialize it to an empty object
+  const [book, setBook] = useState({});
+
+  // NEXT - Create a variable name id and assign one of the IDs of the books from the books data
+  const id = book._id;
+
+  // THEN - Create a useEffect function. In the callback section, find a book from the books data where the ID matches.
+  // Create a new variable and assign the found book to the variable. Use the setter function of the book state to set the value of the book to the new found book.
+  // Add a dependency array and make it so that this useEffect runs only once at the render.
+   useEffect(()=>{
+    const foundBook = booksData.find((book)=> book.id === id);
+    setBook(foundBook)
+  }, [id]);
+  
+
+  
+  const handleUpdateSubmit = (event) => {
+    event.preventDefault();
     console.log("The Update form has been submitted");
     console.log(`Updated information for Book #${book.id}:
         Title: ${book.title}
@@ -15,21 +32,6 @@ const Update = () => {
   };
 
 
-// Create a variable name id and assign one of the IDs of the books from the books data
-const id = book.id
-
-// Create a state using useState to hold data for "book". Create the setter function and initialize it to an empty object
-const [book, setBook] = useState({});
-
-// Create a useEffect function. In the callback section, find a book from the books data where the ID matches.
-// Create a new variable and assign the found book to the variable. Use the setter function of the book state to set the value of the book to the new found book.
-// Add a dependency array and make it so that this useEffect runs only once at the render.
-useEffect(([]) => {
-    const foundBook = booksData.find((book)=> book.id === id);
-    setBook(foundBook)
-});
-
-
     return (
     <div>
       About
@@ -40,27 +42,27 @@ useEffect(([]) => {
           </div>
 
           <div className="update-form">
-            <form action="#" id="update-form" onSubmit={handleUpdateSubmit}>
+            <form id="update-form" onSubmit={handleUpdateSubmit}>
               <div className="update-form-inputs">
                 <div className="update-category">
                   <label htmlFor="title">Title:</label>
                   <input
-                  required  
-                  type="text"
+                    type="text"
                     name="title"
                     id="title"
-                    value="title value stored in database"
+                    defaultValue={book.title}
+                    required 
                   />
                 </div>
 
                 <div className="update-category">
                   <label htmlFor="author">Author:</label>
                   <input
-                    required
                     type="text"
                     name="author"
                     id="author"
-                    value="author value stored in database"
+                    defaultValue={book.author}
+                    required
                   />
                 </div>
 
@@ -81,8 +83,9 @@ useEffect(([]) => {
                       selected
                       hidden
                       className="placeholder-option"
+                      defaultValue={book.publisher}
                     >
-                      publisher value stored in database
+                      
                     </option>
                   </select>
                 </div>
@@ -90,43 +93,49 @@ useEffect(([]) => {
                 <div className="update-category">
                   <label htmlFor="genre">Genre:</label>
                   <input
-                    required
+
                     type="text"
                     name="genre"
                     id="genre"
-                    value="genre data stored in database"
+                    defaultValue={book.genre}
+                    required
                   />
                 </div>
 
                 <div className="update-category">
                   <label htmlFor="pages">Number of Pages:</label>
                   <input
-                    required
                     type="text"
                     name="pages"
                     id="pages"
-                    value="pages stored in database"
+                    defaultValue={book.pages}
+                    required
                   />
                 </div>
 
                 <div className="update-category">
                   <label htmlFor="rating">Rating:</label>
                   <input
-                    required
+
                     type="number"
                     name="rating"
                     id="rating"
                     min="1"
                     max="5"
-                    placeholder="rating stored in database"
+                    defaultValue={book.rating}
+                    required
                   />
                 </div>
 
                 <div className="update-category">
                   <label htmlFor="synopsis">Synopsis:</label>
-                  <textarea required id="synopsis" name="synopsis">
-                    synopsis value stored in database
-                  </textarea>
+                  <textarea 
+                  className="text-area-label" 
+                  name="synopsis" 
+                  id="synopsis" 
+                  defaultValue={book.synopsis}
+                  required>
+                 </textarea>
                 </div>
               </div>
 

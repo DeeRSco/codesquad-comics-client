@@ -53,7 +53,7 @@ const Admin = () => {
             </tr>
 
             {book.map((book) => (
-              <tr key={book._id} className="admin-bottom" style={inlineStyling}>
+              <tr key={book._id} className="admin-bottom">
                 <td>{book.title}</td>
                 <td>
                   <input
